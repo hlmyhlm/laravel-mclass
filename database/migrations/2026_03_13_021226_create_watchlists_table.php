@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('watchlists', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); //if user is deleted, delete their watchlist items as well
             $table->unsignedBigInteger('movie_id'); //TMDB movie ID
             $table->string('title');
             $table->string('poster_path')->nullable();
